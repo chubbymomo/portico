@@ -1,0 +1,26 @@
+display:
+  x_server:
+    display: ":0"
+    vt: "1"
+    args:
+      - "-nolisten" 
+      - "tcp"
+      - "-novtswitch"
+  
+greeter:
+    theme: "dark"
+    title: "Portico"
+    font: "Noto Sans"  # Common on Arch
+    
+protocols:
+    rdp:
+        enabled: true
+        default_resolution: "auto"
+        client: "freerdp"  # Available in Arch repos
+        
+system:
+    log_path: "/var/log/portico.log"
+    run_dir: "/run/portico"
+    # Arch specific paths
+    xauth_path: "/run/portico/Xauth"
+    seat: "seat0"

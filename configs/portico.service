@@ -1,0 +1,17 @@
+[Unit]
+Description=Portico Remote Login Manager
+After=systemd-user-sessions.service network-online.target
+Conflicts=getty@tty1.service
+After=getty@tty1.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/portico
+Restart=always
+RestartSec=10
+Environment=XDG_SESSION_TYPE=x11
+Environment=DISPLAY=:0
+
+[Install]
+WantedBy=graphical.target
+Alias=display-manager.service
